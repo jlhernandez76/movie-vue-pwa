@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!-- Metadata para PWA -->
+    <!-- Modificar color de barra de estado para ANDROID -->
+    <meta name="theme-color" content="#f5f5dc" >
+    <!-- Optimizaciones de SEO -->
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true" >
+    <!-- Modificar Barra de Estado en IOS -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-traslucent"  >
+    <!-- Iconos -->
+    <link rel="shortcut icon" href="./img/favicon16.png" type="image/png">
+    <link rel="apple-touch-icon" href="./img/favicon16.png" >
+    <link rel="apple-touch-startup-image" href="./img/favicon16.png" >
+
+    <!-- Manifest -->
+    <link rel="manifest" href="./manifest.json">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>Api Movies</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>
+            {{title}}
+        </h1>
+        <hr>
+        <form @submit.prevent="getMovie">
+        <label for="">
+            Movie Name : <input type="text" v-model.trim="movieTitle">
+        </label>
+            <input type="submit" value="Get Movie">
+        </form>
+        <div class="container">
+            <h3>Movie <span style="color: crimson;"> {{movieData.Title}} </span> </h3>
+            <h4>Año <span style="color:green;"> {{movieData.Year}} </span> </h4>
+            <h4>Genero <strong style="color: indigo;"> {{movieData.Genre}} </strong> </h4>
+            <h4>Actores <span style="color:green;"> {{movieData.Actors}} </span> </h4>
+            <img :src="movieData.Poster" alt="movieData.Title">
+        </div>
+        
+    </div>
+
+    <script src="./load.js"></script>
+    <script src="./js/main.js"> </script>
+    <script src="./js/mountApp.js"> </script>
+</body>
+</html>
